@@ -1,1 +1,111 @@
 
+Started GET "/" for 92.203.229.239 at 2021-08-12 18:31:24 +0000
+Cannot render console from 92.203.229.239! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (24.9ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 589ms (Views: 578.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 92.203.229.239 at 2021-08-12 18:31:28 +0000
+Cannot render console from 92.203.229.239! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (15.2ms)
+Completed 200 OK in 53ms (Views: 51.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 92.203.229.239 at 2021-08-12 18:31:30 +0000
+Cannot render console from 92.203.229.239! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OB6bLdGqF2CnvGszE4D4gbkFGbGJ/POGeEEukxUx9w8kkcGF6IL+nfw2Af5YcU3HrlYjIj6FGK7y4B1tvYsCcA==", "session"=>{"email"=>"test@test", "password"=>"[FILTERED]"}, "commit"=>"ログイン"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'test@test' LIMIT 1[0m
+  ↳ app/controllers/sessions_controller.rb:6
+Redirected to https://e91a51c5514b45d1a446703d953c5417.vfs.cloud9.us-east-2.amazonaws.com/
+Completed 302 Found in 322ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/" for 92.203.229.239 at 2021-08-12 18:31:31 +0000
+Cannot render console from 92.203.229.239! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:9
+  Rendered pages/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 39ms (Views: 37.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/favorites/index" for 92.203.229.239 at 2021-08-12 18:31:37 +0000
+Cannot render console from 92.203.229.239! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by FavoritesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:9
+  Rendering favorites/index.html.erb within layouts/application
+  [1m[36mTopic Load (0.3ms)[0m  [1m[34mSELECT `topics`.* FROM `topics` INNER JOIN `favorites` ON `topics`.`id` = `favorites`.`topic_id` WHERE `favorites`.`user_id` = 8[0m
+  ↳ app/views/favorites/index.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/favorites/index.html.erb:8
+  Rendered favorites/index.html.erb within layouts/application (39.6ms)
+Completed 500 Internal Server Error in 66ms (ActiveRecord: 3.3ms)
+
+
+  
+ActionView::Template::Error ( is not a recognized provider):
+     7:             <h2 class="topic-author">
+     8:               <%= topic.user.name %>
+     9:             </h2>
+    10:             <%= image_tag topic.image.url %>
+    11:             <%= image_tag 'icons/comment.png', class: 'topic-index-icon' %>
+    12:             <p class="topic-text">
+    13:               <%= topic.description %>
+  
+app/views/favorites/index.html.erb:10:in `block in _app_views_favorites_index_html_erb__1910305326332597701_70246035823900'
+app/views/favorites/index.html.erb:3:in `_app_views_favorites_index_html_erb__1910305326332597701_70246035823900'
+Started GET "/" for 92.203.229.239 at 2021-08-12 18:32:01 +0000
+Cannot render console from 92.203.229.239! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:9
+  Rendered pages/index.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 65ms (Views: 62.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/topics/new" for 92.203.229.239 at 2021-08-12 18:32:03 +0000
+Cannot render console from 92.203.229.239! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopicsController#new as HTML
+  Rendering topics/new.html.erb within layouts/application
+  Rendered topics/new.html.erb within layouts/application (4.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 55ms (Views: 42.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/favorites/index" for 92.203.229.239 at 2021-08-12 18:32:04 +0000
+Cannot render console from 92.203.229.239! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by FavoritesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:9
+  Rendering favorites/index.html.erb within layouts/application
+  [1m[36mTopic Load (0.3ms)[0m  [1m[34mSELECT `topics`.* FROM `topics` INNER JOIN `favorites` ON `topics`.`id` = `favorites`.`topic_id` WHERE `favorites`.`user_id` = 8[0m
+  ↳ app/views/favorites/index.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/favorites/index.html.erb:8
+  Rendered favorites/index.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 49ms (Views: 44.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/topics/new" for 92.203.229.239 at 2021-08-12 18:32:09 +0000
+Cannot render console from 92.203.229.239! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TopicsController#new as HTML
+  Rendering topics/new.html.erb within layouts/application
+  Rendered topics/new.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 58ms (Views: 56.3ms | ActiveRecord: 0.3ms)
+
+
