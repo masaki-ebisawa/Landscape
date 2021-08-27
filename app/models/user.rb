@@ -8,4 +8,7 @@ class User < ApplicationRecord
   has_many :favorites
   has_many :favorite_topics, through: :favorites, source: 'topic'
   
+  def favorite_topic(topic_id)
+    Favorite.create!(user_id: self.id, topic_id: topic_id)
+  end
 end

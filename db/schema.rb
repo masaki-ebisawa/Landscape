@@ -12,14 +12,17 @@
 
 ActiveRecord::Schema.define(version: 2021_08_09_163202) do
 
-  create_table "favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
     t.integer "topic_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "topics", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "topics", force: :cascade do |t|
     t.integer "user_id"
     t.string "description"
     t.string "image"
@@ -27,7 +30,7 @@ ActiveRecord::Schema.define(version: 2021_08_09_163202) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.datetime "created_at", null: false
